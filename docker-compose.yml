@@ -1,0 +1,10 @@
+version: '3'
+services:
+  vobysbot:
+    image: discorbot:arm64v8
+    ports:
+      - "80:8000"
+    volumes:
+      - ./config.json:/opt/bot/config.json
+      - ./scripts:/opt/bot/scripts
+      - ./data:/opt/bot/data
