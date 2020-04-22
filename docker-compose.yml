@@ -1,7 +1,7 @@
 version: '3'
 services:
   vobysbot:
-    image: discorbot:arm64v8
+    image: discorbot:x86
     ports:
       - "80:8000"
     volumes:

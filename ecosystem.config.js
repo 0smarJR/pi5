@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "discorbot",
-      script: "./vobys.js",
+      script: "./bot.js",
       env: {
         NODE_ENV: "development"
       },

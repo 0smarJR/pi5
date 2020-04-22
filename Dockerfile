@@ -19,7 +19,7 @@ COPY config.js .
 COPY ecosystem.config.js .
 COPY package.json .
 COPY package-lock.json .
-COPY vobys.js .
+COPY bot.js .
 
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
