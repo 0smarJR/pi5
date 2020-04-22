@@ -1,5 +1,5 @@
 NAME = discorbot
-VERSION = arm64v8
+VERSION = x86
 
 .PHONY: build build-nocache tag-latest push push-latest release git-tag-version
 
