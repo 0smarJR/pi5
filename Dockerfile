@@ -1,4 +1,4 @@
-FROM arm64v8/node:alpine
+FROM node:alpine
 LABEL maintainer="Victor Alcantara <victoralcan@gmail.com>"
 
 # https://github.com/npm/uid-number/issues/3
