@@ -1,4 +1,4 @@
-## Vobys Discord Bot
+## Discord Bot
 
 Este é o **Bot** do **Victor** no **Discord** utilizado para o que quiser.
 
