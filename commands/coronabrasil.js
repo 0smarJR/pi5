@@ -14,20 +14,17 @@ exports.run = async (client, message, args, _) => {
   message.channel.send({
     embed: {
       color: 0x0099ff,
-      title: "Corona Data",
-      url: "https://github.com/NovelCOVID/API",
-      description: "NovelCOVID API",
+      title: "Corona Data Brasil",
+      url: "https://github.com/filipefer1/covid19-api",
+      description: "Covid Api Brasil",
       fields: [
         {
-          name: args.length > 0 ? data.country : "All Countries",
-          value: `Cases: ${data.cases}\nDeaths: ${data.deaths}`
+          name: args.length > 0 ? args[0]+" - "+args[1]+"/"+args[2]+"/2020": "Brasil",
+          value: `Cases: ${args[0]?data.casos:data.totalCasos}\nDeaths: ${args[0]?data.mortes:data.totalMortes}`
         }
       ],
       thumbnail: {
-        url:
-          args.length > 0
-            ? data.countryInfo.flag
-            : "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/globe-with-meridians_1f310.png",
+        url: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/237/flag-for-brazil_1f1e7-1f1f7.png",
         height: 84,
         width: 84
       },
@@ -40,13 +37,13 @@ exports.run = async (client, message, args, _) => {
     }
   });
 
-  function retrieveData(country) {
+  function retrieveData(uf, dia, mes) {
     return new Promise((resolve, reject) => {
       const request = require("request");
       const options = {
         method: "GET",
-        url: `https://corona.lmao.ninja/v2/${
-          country ? "countries/" + country : "all"
+        url: `https://covid-api-brasil.herokuapp.com/${
+          uf ?  uf+(dia && mes? "/2020-"+mes+"-"+dia:"") : "casos"
         }`
       };
       request(options, (error, response, body) => {
@@ -70,8 +67,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "corona",
+  name: "coronabrasil",
   category: "Miscelaneous",
-  description: "Corona data from NovelCOVID API.",
-  usage: "corona [country]"
+  description: "Corona data from Covid Api Brasil.",
+  usage: "coronabrasil [UF] [DIA] [MÊS]"
 };
