@@ -1,9 +1,9 @@
 exports.run = async (client, message, args, _) => {
-  if (!args || args.length > 1) {
+  if (!args || args.length > 3) {
     return message.reply("this is all your fault: too many parameters!");
   }
 
-  const data = await retrieveData(args.length > 0 ? args[0] : null).catch(
+  const data = await retrieveData(args.length > 0 ? args[0] : null,args.length > 1 ? args[1] : null,args.length > 2 ? args[2] : null).catch(
     reason => {
       if (reason && reason.message)
         return message.reply(`we're doomed! ${reason.message}`);
@@ -19,7 +19,7 @@ exports.run = async (client, message, args, _) => {
       description: "Covid Api Brasil",
       fields: [
         {
-          name: args.length > 0 ? args[0]+" - "+args[1]+"/"+args[2]+"/2020": "Brasil",
+          name: args.length > 0 ? (args[0]?args[0]+" - "+args[1]+"/"+args[2]+"/2020":args[0]): "Brasil",
           value: `Cases: ${args[0]?data.casos:data.totalCasos}\nDeaths: ${args[0]?data.mortes:data.totalMortes}`
         }
       ],
