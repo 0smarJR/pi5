@@ -20,7 +20,7 @@ exports.run = async (client, message, args, _) => {
       fields: [
         {
           name: args.length > 0 ? (args[0]?args[0]+" - "+args[1]+"/"+args[2]+"/2020":args[0]): "Brasil",
-          value: `Cases: ${args[0]?data.casos:data.totalCasos}\nDeaths: ${args[0]?data.mortes:data.totalMortes}`
+          value: `Cases: ${args[0]?(args[1]!=undefined?data[0].casos:data.casos):data.totalCasos}\nDeaths: ${args[0]?(args[1]!=undefined?data[0].mortes:data.mortes):data.totalMortes}`
         }
       ],
       thumbnail: {
