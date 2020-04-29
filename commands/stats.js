@@ -1,11 +1,11 @@
-const { version } = require("discord.js");
-const moment = require("moment");
-require("moment-duration-format");
+const { version } = require('discord.js');
+const moment = require('moment');
+require('moment-duration-format');
 
 exports.run = (client, message) => {
   const duration = moment
     .duration(client.uptime)
-    .format(" D [days], H [hrs], m [mins], s [secs]");
+    .format(' D [days], H [hrs], m [mins], s [secs]');
   message.channel.send(
     `= STATISTICS =
 • Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
@@ -15,7 +15,7 @@ exports.run = (client, message) => {
 • Channels   :: ${client.channels.size.toLocaleString()}
 • Discord.js :: v${version}
 • Node       :: ${process.version}`,
-    { code: "asciidoc" }
+    { code: 'asciidoc' },
   );
 };
 
@@ -23,12 +23,12 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: "User"
+  permLevel: 'User',
 };
 
 exports.help = {
-  name: "stats",
-  category: "Miscelaneous",
-  description: "Gives some useful bot statistics.",
-  usage: "stats"
+  name: 'stats',
+  category: 'Miscelaneous',
+  description: 'Gives some useful bot statistics.',
+  usage: 'stats',
 };

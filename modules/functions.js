@@ -1,5 +1,5 @@
-module.exports = client => {
-  client.permlevel = message => {
+module.exports = (client) => {
+  client.permlevel = (message) => {
     let permlvl = 0;
 
     const permOrder = client.config.permLevels
@@ -18,25 +18,25 @@ module.exports = client => {
     return permlvl;
   };
 
-  client.getSettings = guild => {
+  client.getSettings = (guild) => {
     const defaults = client.config.defaultSettings || {};
     if (!guild) return defaults;
     const guildData = client.settings.get(guild) || {};
     const returnObject = {};
-    Object.keys(defaults).forEach(key => {
+    Object.keys(defaults).forEach((key) => {
       returnObject[key] = guildData[key] ? guildData[key] : defaults[key];
     });
     return returnObject;
   };
 
   client.awaitReply = async (msg, question, limit = 60000) => {
-    const filter = m => m.author.id === msg.author.id;
+    const filter = (m) => m.author.id === msg.author.id;
     await msg.channel.send(question);
     try {
       const collected = await msg.channel.awaitMessages(filter, {
         max: 1,
         time: limit,
-        errors: ["time"]
+        errors: ['time'],
       });
       return collected.first().content;
     } catch (_) {
@@ -45,22 +45,21 @@ module.exports = client => {
   };
 
   client.clean = async (c, text) => {
-    if (text && text.constructor.name === "Promise") text = await text;
-    if (typeof text !== "string")
-      text = require("util").inspect(text, { depth: 1 });
+    if (text && text.constructor.name === 'Promise') text = await text;
+    if (typeof text !== 'string') text = require('util').inspect(text, { depth: 1 });
 
     text = text
-      .replace(/`/g, "`" + String.fromCharCode(8203))
-      .replace(/@/g, "@" + String.fromCharCode(8203))
+      .replace(/`/g, `\`${String.fromCharCode(8203)}`)
+      .replace(/@/g, `@${String.fromCharCode(8203)}`)
       .replace(
         c.token,
-        "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0"
+        'mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0',
       );
 
     return text;
   };
 
-  client.loadCommand = commandName => {
+  client.loadCommand = (commandName) => {
     try {
       client.logger.log(`Loading Command: ${commandName}`);
       const props = require(`../commands/${commandName}`);
@@ -69,7 +68,7 @@ module.exports = client => {
       }
 
       client.commands.set(props.help.name, props);
-      props.conf.aliases.forEach(alias => {
+      props.conf.aliases.forEach((alias) => {
         client.aliases.set(alias, props.help.name);
       });
       return false;
@@ -78,7 +77,7 @@ module.exports = client => {
     }
   };
 
-  client.unloadCommand = async commandName => {
+  client.unloadCommand = async (commandName) => {
     let command;
     if (client.commands.has(commandName)) {
       command = client.commands.get(commandName);
@@ -86,8 +85,7 @@ module.exports = client => {
       command = client.commands.get(client.aliases.get(commandName));
     }
 
-    if (!command)
-      return `The command \`${commandName}\` doesn"t seem to exist, nor is it an alias. Try again!`;
+    if (!command) return `The command \`${commandName}\` doesn"t seem to exist, nor is it an alias. Try again!`;
 
     if (command.shutdown) {
       await command.shutdown(client);
@@ -106,31 +104,31 @@ module.exports = client => {
   };
 
   // eslint-disable-next-line no-extend-native
-  Object.defineProperty(String.prototype, "toProperCase", {
-    value: function() {
+  Object.defineProperty(String.prototype, 'toProperCase', {
+    value() {
       return this.replace(
         /([^\W_]+[^\s-]*) */g,
-        txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
       );
-    }
+    },
   });
 
   // eslint-disable-next-line no-extend-native
-  Object.defineProperty(Array.prototype, "random", {
-    value: function() {
+  Object.defineProperty(Array.prototype, 'random', {
+    value() {
       return this[Math.floor(Math.random() * this.length)];
-    }
+    },
   });
 
-  client.wait = require("util").promisify(setTimeout);
+  client.wait = require('util').promisify(setTimeout);
 
-  process.on("uncaughtException", err => {
-    const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
+  process.on('uncaughtException', (err) => {
+    const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
     client.logger.error(`Uncaught Exception: ${errorMsg}`);
     process.exit(1);
   });
 
-  process.on("unhandledRejection", err => {
+  process.on('unhandledRejection', (err) => {
     client.logger.error(`Unhandled rejection: ${err}`);
   });
 };

@@ -1,8 +1,8 @@
-module.exports = client => {
+module.exports = (client) => {
   console.log(
-    `Ready to serve in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`
+    `Ready to serve in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`,
   );
   client.user.setActivity(`${client.config.defaultSettings.prefix}help`, {
-    type: "PLAYING"
+    type: 'PLAYING',
   });
 };
