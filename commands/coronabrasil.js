@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
           name:
             args.length > 0
               ? args[0]
-                ? `${args[0]} - ${args[1]}/${args[2]}/2020`
+                ? `${args[0].toUpperCase()} - ${args[1] ? args[1] : new Date().getDate()}/${args[2] ? args[2] : new Date().getMonth() + 1}/2020`
                 : args[0]
               : 'Brasil',
           value: `Casos: ${
