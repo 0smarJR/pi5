@@ -26,13 +26,13 @@ exports.run = async (client, message, args) => {
                 ? `${args[0]} - ${args[1]}/${args[2]}/2020`
                 : args[0]
               : 'Brasil',
-          value: `Cases: ${
+          value: `Casos: ${
             args[0]
               ? args[1] !== undefined
                 ? data[0].casos
                 : data.casos
               : data.totalCasos
-          }\nDeaths: ${
+          }\nMortes: ${
             args[0]
               ? args[1] !== undefined
                 ? data[0].mortes

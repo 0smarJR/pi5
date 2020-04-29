@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
       fields: [
         {
           name: args.length > 0 ? data.country : 'All Countries',
-          value: `Cases: ${data.cases}\nDeaths: ${data.deaths}`,
+          value: `Casos: ${data.cases}\nMortes: ${data.deaths}\nRecuperados: ${data.recovered}`,
         },
       ],
       thumbnail: {
