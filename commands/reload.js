@@ -20,6 +20,6 @@ exports.conf = {
 exports.help = {
   name: 'reload',
   category: 'Sistema',
-  description: 'Reloads a command that"s been modified.',
-  usage: 'reload [command]',
+  description: 'Recarrega um comando que foi modificado.',
+  usage: 'reload [comando]',
 };

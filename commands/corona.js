@@ -72,5 +72,7 @@ exports.help = {
   name: 'corona',
   category: 'Corona',
   description: 'Informa o número de casos do corona virus e o número de mortos - Dados recolhidos no NovelCOVID API.',
-  usage: 'corona [country]',
+  usage: `corona [país] - Exibe o total de casos de mortes do páis especificado.
+  corona - Exibe o total de casos e mortes no mundo.
+  `,
 };

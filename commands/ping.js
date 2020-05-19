@@ -1,8 +1,8 @@
 exports.run = async (client, message) => {
   const msg = await message.channel.send('Ping?');
   msg.edit(
-    `Pong! Latency is ${msg.createdTimestamp
-      - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`,
+    `Pong! A Latência é ${msg.createdTimestamp
+      - message.createdTimestamp}ms. A Latência da API é ${Math.round(client.ping)}ms`,
   );
 };
 
@@ -16,6 +16,6 @@ exports.conf = {
 exports.help = {
   name: 'ping',
   category: 'Sistema',
-  description: "It like... Pings. Then Pongs. And it's not Ping Pong.",
+  description: "É tipo... Ping. Então Pong. E não é Ping-Pong.",
   usage: 'ping',
 };

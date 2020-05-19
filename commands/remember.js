@@ -1,10 +1,10 @@
 exports.run = async (client, message, args) => {
   if (!args || args.length < 5) {
-    return message.reply('this is all your fault: missing parameters!');
+    return message.reply('Isso é tudo sua culpa! Muitos parâmetros!');
   }
 
   if (args[1] !== 'in' || !/\d+[hms]/.test(args[2]) || args[3] !== 'to') {
-    return message.reply('this is all your fault: parse error!');
+    return message.reply('Isso é tudo sua culpa: Erro de Sintaxe!');
   }
 
   const member = message.mentions.members.first();
@@ -34,6 +34,6 @@ exports.conf = {
 exports.help = {
   name: 'remember',
   category: 'Diversos',
-  description: 'Remember for scheduled notification.',
-  usage: 'remember [mention] in [delay][h|m|s] to [message]',
+  description: 'Lembre-se de uma notificação agendada.',
+  usage: 'remember [Pessoa a ser mencionada] in [Tempo][h|m|s] to [mensagem]',
 };

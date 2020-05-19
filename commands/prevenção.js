@@ -13,5 +13,5 @@ exports.help = {
   name: 'prevencao',
   category: 'Corona',
   description: 'Exibe as precauções a serem tomadas com o corona virus',
-  usage: '',
+  usage: 'prevencao',
 };

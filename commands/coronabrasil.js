@@ -93,5 +93,7 @@ exports.help = {
   name: 'coronabrasil',
   category: 'Corona',
   description: 'Informa o número de casos e o número de mortos pelo corona virus no Brasil e seus estados - Dados recolhidos no Covid Api Brasil.',
-  usage: 'coronabrasil [UF] [DIA] [MÊS]',
+  usage: `coronabrasil [UF] [DIA] [MÊS] - Exibe o numero de casos e mortes em um estado no dia especificado.
+  coronabrasil [UF] - Exibe o número total de casos e mortes no estado especificado.
+  coronabrasil - exibe o numero total de casos e mortes no Brasil.`,
 };

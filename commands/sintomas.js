@@ -19,6 +19,6 @@ exports.conf = {
 exports.help = {
   name: 'sintomas',
   category: 'Corona',
-  description: 'Exibe as precauções a serem tomadas com o corona virus',
+  description: 'Exibe os sintomas do corona virus',
   usage: '',
 };
