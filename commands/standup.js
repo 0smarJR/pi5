@@ -33,7 +33,7 @@ exports.conf = {
 
 exports.help = {
   name: 'standup',
-  category: 'Development',
+  category: 'Diversos',
   description: 'Asynchronous standup meeting report.',
   usage: 'standup [report text]',
 };

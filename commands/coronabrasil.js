@@ -87,7 +87,7 @@ exports.conf = {
 
 exports.help = {
   name: 'coronabrasil',
-  category: 'Miscelaneous',
+  category: 'Corona',
   description: 'Corona data from Covid Api Brasil.',
   usage: 'coronabrasil [UF] [DIA] [MÊS]',
 };

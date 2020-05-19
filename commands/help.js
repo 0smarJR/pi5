@@ -65,7 +65,7 @@ exports.conf = {
 
 exports.help = {
   name: 'help',
-  category: 'System',
+  category: 'Sistema',
   description: 'Displays all the available commands for your permission level.',
   usage: 'help [command]',
 };

@@ -33,7 +33,7 @@ exports.conf = {
 
 exports.help = {
   name: 'remember',
-  category: 'Miscelaneous',
+  category: 'Diversos',
   description: 'Remember for scheduled notification.',
   usage: 'remember [mention] in [delay][h|m|s] to [message]',
 };

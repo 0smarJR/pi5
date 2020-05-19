@@ -70,7 +70,7 @@ exports.conf = {
 
 exports.help = {
   name: 'corona',
-  category: 'Miscelaneous',
+  category: 'Corona',
   description: 'Corona data from NovelCOVID API.',
   usage: 'corona [country]',
 };
