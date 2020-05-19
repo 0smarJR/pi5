@@ -14,6 +14,6 @@ exports.help = {
   name: 'auth',
   category: 'Sistema',
   description:
-    'Tells you your permission level for the current message location.',
+    'Informa o seu nível de permissão.',
   usage: 'auth',
 };

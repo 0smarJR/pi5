@@ -71,6 +71,6 @@ exports.conf = {
 exports.help = {
   name: 'corona',
   category: 'Corona',
-  description: 'Corona data from NovelCOVID API.',
+  description: 'Informa o número de casos do corona virus e o número de mortos - Dados recolhidos no NovelCOVID API.',
   usage: 'corona [country]',
 };
