@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
     reports.forEach((report) => message.channel.send(
       `:construction_worker: __**${report.member}**__:\n${report.text}`,
     ));
-    if (reports.length === 0) message.channel.send('No reports send yet!');
+    if (reports.length === 0) message.channel.send('Nenhum relatório enviado ainda!');
   } else if (args && message.guild) {
     const member = message.author.username;
     const text = args.join(' ');
@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
       text,
     });
     client.standup.set(key, text, 'text');
-    message.channel.send(`Report to member ${member} was saved!`);
+    message.channel.send(`Relatório para o membro ${member} foi salvo!`);
   }
 };
 
@@ -34,6 +34,6 @@ exports.conf = {
 exports.help = {
   name: 'standup',
   category: 'Diversos',
-  description: 'Asynchronous standup meeting report.',
+  description: 'Emite um relatório para os outros membros.',
   usage: 'standup [report text]',
 };
