@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
             args[0]
               ? args[1] !== undefined
                 ? data[0].mortes
-                : data.mortes
+                : (data.mortes == undefined ? '0':data.mortes)
               : data.totalMortes
           }`,
         },
