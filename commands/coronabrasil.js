@@ -1,6 +1,6 @@
 exports.run = async (client, message, args) => {
   if (!args || args.length > 3) {
-    return message.reply('this is all your fault: too many parameters!');
+    return message.reply('Isso é tudo sua culpa! Muitos parâmetros!');
   }
 
   const data = await retrieveData(
@@ -8,8 +8,8 @@ exports.run = async (client, message, args) => {
     args.length > 1 ? args[1] : null,
     args.length > 2 ? args[2] : null,
   ).catch((reason) => {
-    if (reason && reason.message) return message.reply(`we're doomed! ${reason.message}`);
-    return message.reply("I'm quite beside myself.");
+    if (reason && reason.message) return message.reply(`Estamos condenados! ${reason.message}`);
+    return message.reply('Estou completamente fora de mim.');
   });
 
   await message.channel.send({
@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
             args[0]
               ? args[1] !== undefined
                 ? data[0].mortes
-                : (data.mortes === undefined ? '0':data.mortes)
+                : (data.mortes === undefined ? '0' : data.mortes)
               : data.totalMortes
           }`,
         },
@@ -68,7 +68,7 @@ exports.run = async (client, message, args) => {
       request(options, (error, response, body) => {
         if (error || response.statusCode !== 200) {
           reject(
-            new Error(`An error was sent by API: \n${JSON.stringify(error)}`),
+            new Error(`A API retornou um erro: \n${JSON.stringify(error)}`),
           );
         }
 
