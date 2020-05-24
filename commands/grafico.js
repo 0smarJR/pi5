@@ -31,7 +31,7 @@ exports.run = async (client, message, args) => {
         description: 'Covid Api Brasil',
         fields: [
           {
-            name: 'casos no '+args[0]+"nos ultimos "+args[1],
+            name: 'casos no '+args[0]+" nos ultimos "+args[1]+" dias:",
             value: `${mensagem}`,
           },
         ],
@@ -82,9 +82,7 @@ exports.run = async (client, message, args) => {
   exports.help = {
     name: 'grafico',
     category: 'Corona',
-    description: 'Informa o número de casos e o número de mortos pelo corona virus no Brasil e seus estados - Dados recolhidos no Covid Api Brasil.',
-    usage: `coronabrasil [UF] [DIA] [MÊS] - Exibe o numero de casos e mortes em um estado no dia especificado.
-    coronabrasil [UF] - Exibe o número total de casos e mortes no estado especificado.
-    coronabrasil - exibe o numero total de casos e mortes no Brasil.`,
+    description: 'Exibe um gráfico mostrando o número de casos e o número de mortos pelo corona virus no Brasil e seus estados nos ultimos dias - Dados recolhidos no Covid Api Brasil.',
+    usage: `grafico [UF] [DIAS] - Exibe um grafico mostrando o numero de casos e mortes em um estado nos ultimos "X" dias (sendo "X" a variável [DIAS]).`
   };
   
