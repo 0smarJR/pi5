@@ -32,7 +32,7 @@ exports.run = async (client, message, args) => {
         fields: [
           {
             name: 'casos no '+args[0]+"nos ultimos "+args[1],
-            value: `_${mensagem}`,
+            value: `${mensagem}`,
           },
         ],
         thumbnail: {
