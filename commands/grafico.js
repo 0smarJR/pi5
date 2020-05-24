@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     if (args[1]>10){
         return message.reply('Ta maluco! eu ficaria o dia inteiro pra processar isso!');
     }
-    var mensagem = '';
+    var mensagem = 'Casos por dia';
     for (let index = 0; index < args[1]; index++) {
         var today = new Date();
         today.setDate(today.getDate()-3-index)
@@ -19,9 +19,9 @@ exports.run = async (client, message, args) => {
             return message.reply('Estou completamente fora de mim.');
         });
         console.log(day)
-        mensagem.concat('dia: '+day+"\n")
-        mensagem.concat('Casos: '+data[0].casos!==undefined?data[0].casos:"0"+"\n")
-        mensagem.concat('Mortes: '+data[0].mortes!==undefined?data[0].mortes:"0"+"\n")
+        mensagem.concat('\nDia: '+day)
+        mensagem.concat('\nCasos: '+data[0].casos!==undefined?data[0].casos:"0")
+        mensagem.concat('\nMortes: '+data[0].mortes!==undefined?data[0].mortes:"0")
     }
     
     await message.channel.send({
@@ -32,9 +32,8 @@ exports.run = async (client, message, args) => {
         description: 'Covid Api Brasil',
         fields: [
           {
-            name:
-              'casos no '+args[0]+"nos ultimos "+args[1],
-            value: `${mensagem}`,
+            name: 'casos no '+args[0]+"nos ultimos "+args[1],
+            value: `_${mensagem}`,
           },
         ],
         thumbnail: {
