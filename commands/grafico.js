@@ -83,6 +83,6 @@ exports.run = async (client, message, args) => {
     name: 'grafico',
     category: 'Corona',
     description: 'Exibe um gráfico mostrando o número de casos e o número de mortos pelo corona virus no Brasil e seus estados nos ultimos dias - Dados recolhidos no Covid Api Brasil.',
-    usage: `grafico [UF] [DIAS] - Exibe um grafico mostrando o numero de casos e mortes em um estado nos ultimos "X" dias (sendo "X" a variável [DIAS]).`
+    usage: `grafico [UF] [DIAS] - O grafico será gerado mostrando o numero de casos e mortes do estado escolhido nos ultimos "X" dias (sendo "X" a variável [DIAS] e seu limite sendo 10).`
   };
   
