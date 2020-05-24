@@ -19,8 +19,8 @@ exports.run = async (client, message, args) => {
             return message.reply('Estou completamente fora de mim.');
         });
         mensagem = mensagem + '\nDia: '+day
-        mensagem = mensagem + ('\nCasos: '+data[0].casos!==undefined?data[0].casos:"0")
-        mensagem = mensagem + ('\nMortes: '+data[0].mortes!==undefined?data[0].mortes:"0")
+        mensagem = mensagem + ('\n-Casos: '+(data[0].casos!==undefined?data[0].casos:"0"))
+        mensagem = mensagem + ('\n-Mortes: '+(data[0].mortes!==undefined?data[0].mortes:"0"))
     }
     
     await message.channel.send({
