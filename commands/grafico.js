@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
           {
             name:
               'casos no '+args[0]+"nos ultimos "+args[1],
-            value: mensagem,
+            value: `${mensagem}`,
           },
         ],
         thumbnail: {
