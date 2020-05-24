@@ -2,7 +2,7 @@ exports.run = async (client, message, args) => {
   if (!args || args.length !== 2) {
     return message.reply('Isso é tudo sua culpa! quantidade de parametros errada!');
   }
-  if (args[1] > 10) {
+  if (args[1] > 15) {
     return message.reply('Ta maluco! eu ficaria o dia inteiro pra processar isso!');
   }
   let mensagem = 'Casos por dia';
@@ -83,5 +83,5 @@ exports.help = {
   name: 'grafico',
   category: 'Corona',
   description: 'Exibe um gráfico mostrando o número de casos e o número de mortos pelo corona virus no Brasil e seus estados nos ultimos dias - Dados recolhidos no Covid Api Brasil.',
-  usage: 'grafico [UF] [DIAS] - O grafico será gerado mostrando o numero de casos e mortes do estado escolhido nos ultimos "X" dias (sendo "X" a variável [DIAS] e seu limite sendo 10).',
+  usage: 'grafico [UF] [DIAS] - O grafico será gerado mostrando o numero de casos e mortes do estado escolhido nos ultimos "X" dias (sendo "X" a variável [DIAS] e seu limite sendo 15).',
 };
