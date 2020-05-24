@@ -18,10 +18,9 @@ exports.run = async (client, message, args) => {
             if (reason && reason.message) return message.reply(`Estamos condenados! ${reason.message}`);
             return message.reply('Estou completamente fora de mim.');
         });
-        console.log(day)
-        mensagem.concat('\nDia: '+day)
-        mensagem.concat('\nCasos: '+data[0].casos!==undefined?data[0].casos:"0")
-        mensagem.concat('\nMortes: '+data[0].mortes!==undefined?data[0].mortes:"0")
+        mensagem = mensagem + '\nDia: '+day
+        mensagem = mensagem + ('\nCasos: '+data[0].casos!==undefined?data[0].casos:"0")
+        mensagem = mensagem + ('\nMortes: '+data[0].mortes!==undefined?data[0].mortes:"0")
     }
     
     await message.channel.send({
