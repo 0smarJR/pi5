@@ -56,7 +56,7 @@ exports.run = async (client, message, args) => {
       const options = {
         method: 'GET',
         url: `https://covid-api-brasil.herokuapp.com/${
-          `${uf}/${day}`
+          `${uf==="br"?"casos":uf}/${day}`
         }`,
       };
       request(options, (error, response, body) => {
