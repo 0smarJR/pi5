@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     for (let index = 0; index < args[1]; index++) {
         var today = new Date();
         today.setDate(today.getDate()-3-index)
-        day = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+        day = today.getFullYear() + "-" + (string(today.getMonth() + 1).padStart(2, '0')) + "-" + today.getDate();
         
         const data = await retrieveData(
             args.length > 0 ? args[0] : null,
