@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   let mensagem = 'Casos por dia';
   for (let index = 0; index < args[1]; index++) {
     const today = new Date();
-    today.setDate(today.getDate() - 3 - index);
+    today.setDate(today.getDate() - 1 - index);
     const day = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
     const data = await retrieveData(
@@ -19,8 +19,8 @@ exports.run = async (client, message, args) => {
       return message.reply('Estou completamente fora de mim.');
     });
     mensagem = `${mensagem}\nDia: ${day}`;
-    mensagem = `${mensagem}\n-Casos: ${data[0].casos !== undefined ? data[0].casos : '0'}`;
-    mensagem = `${mensagem}\n-Mortes: ${data[0].mortes !== undefined ? data[0].mortes : '0'}`;
+    mensagem = `${mensagem}\n-> Casos: ${data[0].casos !== undefined ? data[0].casos : '0'}`;
+    mensagem = `${mensagem}\n-> Mortes: ${data[0].mortes !== undefined ? data[0].mortes : '0'}`;
   }
 
   await message.channel.send({
@@ -31,7 +31,7 @@ exports.run = async (client, message, args) => {
       description: 'Covid Api Brasil',
       fields: [
         {
-          name: `casos no ${args[0]} nos ultimos ${args[1]} dias:`,
+          name: `casos e mortes - ${args[0]} - nos ultimos ${args[1]} dias:`,
           value: `${mensagem}`,
         },
       ],
