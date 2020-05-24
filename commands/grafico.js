@@ -1,5 +1,5 @@
 exports.run = async (client, message, args) => {
-  if (!args || args.length != 2) {
+  if (!args || args.length !== 2) {
     return message.reply('Isso é tudo sua culpa! quantidade de parametros errada!');
   }
   if (args[1] > 10) {
@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   for (let index = 0; index < args[1]; index++) {
     const today = new Date();
     today.setDate(today.getDate() - 3 - index);
-    day = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const day = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
     const data = await retrieveData(
       args.length > 0 ? args[0] : null,
