@@ -5,7 +5,8 @@ exports.run = async (client, message, args) => {
   if (args[1] > 15) {
     return message.reply('Ta maluco! eu ficaria o dia inteiro pra processar isso!');
   }
-  let mensagem = 'Casos por dia';
+  await message.channel.send(`Gerando histórico para o estado ${args[0].toUpperCase()} nos útimos ${args[1]} dias`);
+  let mensagem = 'Casos por Dia\n';
   for (let index = 0; index < args[1]; index++) {
     const today = new Date();
     today.setDate(today.getDate() - 1 - index);
@@ -21,17 +22,18 @@ exports.run = async (client, message, args) => {
     mensagem = `${mensagem}\nDia: ${day}`;
     mensagem = `${mensagem}\n-> Casos: ${data[0].casos !== undefined ? data[0].casos : '0'}`;
     mensagem = `${mensagem}\n-> Mortes: ${data[0].mortes !== undefined ? data[0].mortes : '0'}`;
+    mensagem = `${mensagem}\n`;
   }
 
   await message.channel.send({
     embed: {
       color: 0x0099ff,
-      title: `Grafico casos ${args[0]}`,
+      title: `Histórico Casos ${args[0].toUpperCase()}`,
       url: 'https://github.com/filipefer1/covid19-api',
       description: 'Covid Api Brasil',
       fields: [
         {
-          name: `casos e mortes - ${args[0]} - nos ultimos ${args[1]} dias:`,
+          name: `Casos e Mortes - ${args[0].toUpperCase()} - nos ultimos ${args[1]} dias:`,
           value: `${mensagem}`,
         },
       ],
@@ -80,8 +82,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'grafico',
+  name: 'historico',
   category: 'Corona',
-  description: 'Exibe um gráfico mostrando o número de casos e o número de mortos pelo corona virus no Brasil e seus estados nos ultimos dias - Dados recolhidos no Covid Api Brasil.',
-  usage: 'grafico [UF] [DIAS] - O grafico será gerado mostrando o numero de casos e mortes do estado escolhido nos ultimos "X" dias (sendo "X" a variável [DIAS] e seu limite sendo 15).',
+  description: 'Exibe o histórico do número de casos e o número de mortos pelo corona virus no Brasil e seus estados nos ultimos dias - Dados recolhidos no Covid Api Brasil.',
+  usage: 'historico [UF] [DIAS] - O histórico será gerado mostrando o numero de casos e mortes do estado escolhido nos ultimos "X" dias (sendo "X" a variável [DIAS] e seu limite sendo 15).',
 };
