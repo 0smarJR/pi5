@@ -5,9 +5,9 @@ exports.run = (client, message, args, level) => {
       command = client.commands.get(command);
       if (level < client.levelCache[command.conf.permLevel]) return;
       message.channel.send(
-        `= ${command.help.name} = \n${command.help.description}\nusage:: ${
+        `= ${command.help.name} = \n${command.help.description}\n\nComo Usar:: ${
           command.help.usage
-        }\naliases:: ${command.conf.aliases.join(', ')}\n= ${
+        }\n= ${
           command.help.name
         } =`,
         { code: 'asciidoc' },
