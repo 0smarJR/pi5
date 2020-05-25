@@ -17,6 +17,6 @@ exports.help = {
   name: 'restart',
   category: 'Sistema',
   description:
-    'Desliga o bot. Se estiver rodando no PM2 o bot irá reiniciar autmomaticamente',
+    'Desliga o bot. Se estiver rodando no PM2 o bot irá reiniciar automaticamente',
   usage: 'restart',
 };
